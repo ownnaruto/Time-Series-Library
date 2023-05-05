@@ -93,6 +93,9 @@ if __name__ == '__main__':
                         help='hidden layer dimensions of projector (List)')
     parser.add_argument('--p_hidden_layers', type=int, default=2, help='number of hidden layers in projector')
 
+    # LSTM params
+    parser.add_argument('--hidden_size', type=int, default=64)
+    parser.add_argument('--num_layers', type=int, default=1)
 
     args = parser.parse_args()
     args.use_gpu = True if torch.cuda.is_available() and args.use_gpu else False
