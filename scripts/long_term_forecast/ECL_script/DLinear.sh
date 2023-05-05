@@ -1,5 +1,12 @@
 export CUDA_VISIBLE_DEVICES=1
 
+if [ ! -d "./logs" ]; then
+    mkdir ./logs
+fi
+
+if [ ! -d "./logs/LongForecasting" ]; then
+    mkdir ./logs/LongForecasting
+fi
 model_name=DLinear
 
 python -u run.py \
@@ -21,7 +28,7 @@ python -u run.py \
   --dec_in 321 \
   --c_out 321 \
   --des 'Exp' \
-  --itr 1
+  --itr 1 > logs/LongForecasting/$model_name'_'electricity_96_96.log
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -42,7 +49,7 @@ python -u run.py \
   --dec_in 321 \
   --c_out 321 \
   --des 'Exp' \
-  --itr 1
+  --itr 1 > logs/LongForecasting/$model_name'_'electricity_96_192.log
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -63,7 +70,7 @@ python -u run.py \
   --dec_in 321 \
   --c_out 321 \
   --des 'Exp' \
-  --itr 1
+  --itr 1 > > logs/LongForecasting/$model_name'_'electricity_96_336.log
 
 python -u run.py \
   --task_name long_term_forecast \
@@ -84,4 +91,4 @@ python -u run.py \
   --dec_in 321 \
   --c_out 321 \
   --des 'Exp' \
-  --itr 1
+  --itr 1 > logs/LongForecasting/$model_name'_'electricity_96_720.log
