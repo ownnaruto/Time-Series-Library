@@ -70,7 +70,7 @@ python -u run.py \
   --dec_in 321 \
   --c_out 321 \
   --des 'Exp' \
-  --itr 1 > > logs/LongForecasting/$model_name'_'electricity_96_336.log
+  --itr 1 > logs/LongForecasting/$model_name'_'electricity_96_336.log
 
 python -u run.py \
   --task_name long_term_forecast \
